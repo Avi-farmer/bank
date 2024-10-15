@@ -12,9 +12,9 @@
 
 <body class="container-fluid image">
     <header class="bg-dark text-white position-sticky top-0">
-        <div class="container d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center">
             <div>
-                <h1>MyBank</h1>
+                <h1><img src="./images/logo.png" height="100px" width="100px">MyBank</h1>
             </div>
             <div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
@@ -86,12 +86,64 @@
                 <div class="col-sm text-center bg-dark text-white m-1">
                     <h3 class="my-4">Business Banking</h3>
                     <p>Solutions designed to <br> help your business grow.</p>
-                    <button class="exploer my-4">Check Here</button>
+                    <button class="exploer my-4" data-bs-toggle="modal" data-bs-target="#details">Check Here</button>
+                    <div class="modal fade modal-fullscreen-sm-down" id="details">
+                        <div class="modal-dialog">
+                            <div class="modal-content bg-dark">
+                                <div class="modal-header">
+                                    <h1>Enter Your details</h1>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="login-container">
+                                        <h2>Login</h2>
+                                        <form id="loginForm">
+                                            <div class="form-group">
+                                                <label for="username" class="form-lable">Username Id: 98765</label>
+                                                <input class="form-control" type="text" id="username" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="password" class="form-lable">Password: 5678</label>
+                                                <input class="form-control" type="password" id="password" required>
+                                            </div>        
+                                            <input type="submit" class="exploer my-4" id="sub1"></input>
+                                            <div id="message" class="message"></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
                 </div>
                 <div class="col-sm text-center bg-dark text-white m-1">
                     <h3 class="my-4">Investments</h3>
                     <p>Grow your wealth with <br> our investment services.</p>
-                    <button class="exploer my-4">Check Here</button>
+                    <button class="exploer my-4" data-bs-toggle="modal" data-bs-target="#details">Check Here</button>
+                    <div class="modal fade modal-fullscreen-sm-down" id="details">
+                        <div class="modal-dialog">
+                            <div class="modal-content bg-dark">
+                                <div class="modal-header">
+                                    <h1>Enter Your details</h1>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="login-container">
+                                        <h2>Login</h2>
+                                        <form id="loginForm">
+                                            <div class="form-group">
+                                                <label for="username" class="form-lable">Username Id: 98765</label>
+                                                <input class="form-control" type="text" id="username" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="password" class="form-lable">Password: 5678</label>
+                                                <input class="form-control" type="password" id="password" required>
+                                            </div>        
+                                            <input type="submit" class="exploer my-4" id="sub1"></input>
+                                            <div id="message" class="message"></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
                 </div>
         </div>
     </main>
