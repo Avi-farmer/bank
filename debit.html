@@ -15,32 +15,33 @@
 
 <body class="container-fluid image">
     <header class="bg-dark text-white position-sticky top-0"></header>
-        <div class="bg-dark text-white d-flex justify-content-between align-items-center">
-            <div>
-                <h1>MyBank</h1>
-            </div>
-            <div>
-                <button class="navbar-toggler btn btn-warning active" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <nav class="navbar navbar-expand-md nav-dark navbar-dark">
-                    <ul class="nav collapse navbar-collapse" id="menu">
-                        <li class="nav-item">
-                            <a href="home.html" class="nav-link text-white">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="home.html" class="nav-link text-white">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="home.html" class="nav-link text-white">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.html" class="nav-link text-white">Log out</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+    <div class="bg-dark text-white d-flex justify-content-between align-items-center">
+        <div>
+            <h1>MyBank</h1>
         </div>
+        <div>
+            <button class="navbar-toggler btn btn-warning active" type="button" data-bs-toggle="collapse"
+                data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="navbar navbar-expand-md nav-dark navbar-dark">
+                <ul class="nav collapse navbar-collapse" id="menu">
+                    <li class="nav-item">
+                        <a href="home.html" class="nav-link text-white">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="home.html" class="nav-link text-white">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="home.html" class="nav-link text-white">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link text-white">Log out</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
     </header>
     <header class="text-center">
         <h1>Banking Transactions</h1>
@@ -53,8 +54,9 @@
             <h6>User Id : <span class="fw-bold">123456</span></h6>
             <h6>Email : <span class="fw-bold">mybank@gmail.com</span></h6>
             <h6>IFSC CODE : <span class="fw-bold">MB000012</span></h6>
-            <h6>Available Balance : <span class="fw-bold fs-4" id="balance"></span><span class="fs-4 fw-bold">/-</span></h6>
-            
+            <h6>Available Balance : <span class="fw-bold fs-4" id="balance"></span><span class="fs-4 fw-bold">/-</span>
+            </h6>
+
         </div>
         <div>
             <h2 class="fw-bold">Transaction Form :</h2>
@@ -76,33 +78,45 @@
         </div>
     </div>
     <script>
-       
+
         let acb = 0;
+        let amount = [];
+        
+        console.log(amount)
         document.getElementById("balance").innerHTML = acb;
+        document.getElementById("amount").innerHTML = amount;
+        const historyList=document.getElementById('historyList').value;
         let add = document.getElementById('submit');
-            add.addEventListener("click", function () {
-                document.getElementById('historyList').innerHTML ="last transection"+ amount;
-                let a = document.getElementById("trans").value;
-                amount = parseInt(document.getElementById('amount').value);
-                if(a == "credit"){
-               acb = acb + amount;
-               document.getElementById("balance").innerHTML = acb;
-               document.getElementById("ins").innerHTML='';
-                }
-                if(a == "debit" ){
-                    if(acb >= amount){
-                acb= acb - amount;
-                document.getElementById("balance").innerHTML = acb;
-                document.getElementById("ins").innerHTML='';
-                    }
-                    else{
-                        document.getElementById("ins").innerHTML="insufficient balance.";
-                        return false
-                    }
-                }
-                
-            })
+        add.addEventListener("click", function () {
             
+            let a = document.getElementById("trans").value;
+            amount = parseInt(document.getElementById('amount').value);
+            if (isNaN(amount) || amount <= 0) {
+                document.getElementById("ins").innerHTML = "Please enter a valid amount.";
+                return;
+            }
+            if (a == "credit") {
+                acb = acb + amount;
+                document.getElementById("balance").innerHTML = acb;
+                document.getElementById("ins").innerHTML = '';
+            }
+            if (a == "debit") {
+                if (acb >= amount) {
+                    acb = acb - amount;
+                    document.getElementById("balance").innerHTML = acb;
+                    document.getElementById("ins").innerHTML = '';
+                }
+                else {
+                    document.getElementById("ins").innerHTML = "insufficient balance.";
+                    return false
+                }
+            }
+            const li = document.createElement('li');
+            li.textContent = message;
+            historyList.appendChild(li);           
+            amountInput.value = '';
+        })
+
     </script>
 </body>
 
